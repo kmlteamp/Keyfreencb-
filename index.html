@@ -2,185 +2,168 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>NCB KEY</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:
-        radial-gradient(circle at center,#102c55 0%,#050b16 55%,#02040a 100%);
-    color:white;
-    overflow:hidden;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle,#102c55,#050b16 55%,#02040a);
+  color:white;
 }
 
 .container{
-    width:92%;
-    max-width:430px;
+  width:92%;
+  max-width:430px;
 }
 
 .box{
-    background:rgba(8,18,35,.94);
-    border:1px solid #168cff;
-    border-radius:22px;
-    padding:28px 20px;
-    text-align:center;
-    box-shadow:
-        0 0 20px rgba(0,140,255,.35),
-        inset 0 0 20px rgba(0,100,255,.08);
+  background:rgba(8,18,35,.96);
+  border:1px solid #168cff;
+  border-radius:22px;
+  padding:28px 20px;
+  text-align:center;
+  box-shadow:0 0 25px rgba(0,140,255,.35);
+}
+
+.logo,
+.loading-img{
+  object-fit:cover;
+  border-radius:18px;
 }
 
 .logo{
-    width:75px;
-    height:75px;
-    object-fit:cover;
-    border-radius:50%;
-    margin-bottom:15px;
-    border:2px solid #00aaff;
-    box-shadow:0 0 20px #008cff;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:2px solid #00aaff;
+  margin-bottom:15px;
 }
 
 h1{
-    font-size:24px;
-    margin-bottom:10px;
+  font-size:24px;
+  margin-bottom:10px;
 }
 
 .desc{
-    color:#9eb5d0;
-    font-size:14px;
-    margin-bottom:22px;
+  color:#9eb5d0;
+  font-size:14px;
+  margin-bottom:22px;
 }
 
 button{
-    border:none;
-    cursor:pointer;
-    font-weight:bold;
+  border:0;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 .auth-btn{
-    width:100%;
-    padding:15px;
-    border-radius:13px;
-    color:white;
-    font-size:16px;
-    background:linear-gradient(135deg,#008cff,#005bea);
-    box-shadow:0 0 18px rgba(0,140,255,.45);
+  width:100%;
+  padding:15px;
+  border-radius:13px;
+  color:#fff;
+  font-size:16px;
+  background:linear-gradient(135deg,#008cff,#005bea);
 }
 
-.auth-btn:active{
-    transform:scale(.97);
-}
-
-/* LOADING */
-#loadingBox{
-    display:none;
+#loadingBox,
+#keyBox{
+  display:none;
 }
 
 .loading-title{
-    font-size:19px;
-    margin-bottom:18px;
-    color:#58c7ff;
+  font-size:20px;
+  color:#58c7ff;
+  margin-bottom:18px;
 }
 
 .loading-img{
-    width:180px;
-    height:180px;
-    object-fit:cover;
-    border-radius:18px;
-    display:block;
-    margin:0 auto 18px;
-    box-shadow:0 0 25px rgba(0,160,255,.5);
+  width:180px;
+  height:180px;
+  margin-bottom:18px;
+  box-shadow:0 0 25px rgba(0,160,255,.5);
 }
 
 .loading-text{
-    font-size:15px;
-    color:#b9d7ef;
-    margin-bottom:15px;
+  color:#b9d7ef;
+  font-size:15px;
+  margin-bottom:15px;
 }
 
 .progress{
-    width:100%;
-    height:9px;
-    background:#10233b;
-    border-radius:20px;
-    overflow:hidden;
+  width:100%;
+  height:9px;
+  background:#10233b;
+  border-radius:20px;
+  overflow:hidden;
 }
 
 .progress-bar{
-    height:100%;
-    width:0%;
-    background:linear-gradient(90deg,#00aaff,#00eaff);
-    border-radius:20px;
-    box-shadow:0 0 12px #00bfff;
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#00aaff,#00eaff);
+  transition:.2s;
 }
 
 .time{
-    margin-top:10px;
-    font-size:13px;
-    color:#7694b2;
+  margin-top:10px;
+  color:#7694b2;
+  font-size:13px;
 }
 
-/* KEY */
-#keyBox{
-    display:none;
+.skip-btn{
+  margin-top:18px;
+  padding:11px 30px;
+  border-radius:10px;
+  color:#fff;
+  background:linear-gradient(135deg,#ff9d00,#ff4d00);
 }
 
 .key-title{
-    color:#57c9ff;
-    font-size:20px;
-    margin-bottom:15px;
+  color:#57c9ff;
+  font-size:20px;
+  margin-bottom:15px;
 }
 
 .key-area{
-    display:flex;
-    gap:8px;
-    align-items:center;
+  display:flex;
+  gap:8px;
 }
 
 .key-input{
-    flex:1;
-    min-width:0;
-    padding:13px 10px;
-    border-radius:10px;
-    border:1px solid #087fe0;
-    background:#061221;
-    color:#fff;
-    font-size:13px;
-    outline:none;
+  flex:1;
+  min-width:0;
+  padding:13px 10px;
+  border-radius:10px;
+  border:1px solid #087fe0;
+  background:#061221;
+  color:#fff;
+  font-size:13px;
+  outline:none;
 }
 
 .copy-btn{
-    padding:13px 15px;
-    border-radius:10px;
-    background:linear-gradient(135deg,#00aaff,#0066ff);
-    color:#fff;
-}
-
-.copy-btn:active{
-    transform:scale(.95);
+  padding:13px 15px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#00aaff,#0066ff);
+  color:#fff;
 }
 
 .success{
-    margin-top:13px;
-    color:#49ff9b;
-    font-size:13px;
-    display:none;
-}
-
-.note{
-    margin-top:18px;
-    color:#7189a3;
-    font-size:12px;
+  display:none;
+  margin-top:13px;
+  color:#49ff9b;
+  font-size:13px;
 }
 </style>
 </head>
@@ -189,354 +172,392 @@ button{
 
 <div class="container">
 
-    <!-- KHUNG XÁC THỰC -->
-    <div class="box" id="authBox">
+  <!-- XÁC THỰC -->
+  <div class="box" id="authBox">
 
-        <img
-            class="logo"
-            src="https://i.ibb.co/PsDW1Zwg/file-00000000a95c81fa850099ef06505f30.png"
-            alt="NCB"
-        >
+    <img
+      class="logo"
+      src="https://i.ibb.co/PsDW1Zwg/file-00000000a95c81fa850099ef06505f30.png"
+      alt="NCB"
+    >
 
-        <h1>XÁC THỰC</h1>
+    <h1>XÁC THỰC</h1>
 
-        <div class="desc">
-            Vui lòng xác thực để tiếp tục nhận KEY
-        </div>
+    <div class="desc">
+      Vui lòng xác thực để tiếp tục nhận KEY
+    </div>
 
-        <button class="auth-btn" onclick="startVerify()">
-            XÁC THỰC
-        </button>
+    <button class="auth-btn" onclick="startVerify()">
+      XÁC THỰC
+    </button>
+
+  </div>
+
+
+  <!-- LOADING -->
+  <div class="box" id="loadingBox">
+
+    <div class="loading-title">
+      ĐANG XÁC THỰC
+    </div>
+
+    <img
+      class="loading-img"
+      src="https://i.ibb.co/PsDW1Zwg/file-00000000a95c81fa850099ef06505f30.png"
+      alt="Loading"
+    >
+
+    <div class="loading-text">
+      Đang xác thực, vui lòng chờ...
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="time">
+      Còn <span id="timeLeft">02:00</span>
+    </div>
+
+    <button class="skip-btn" onclick="skipToRandomLink()">
+      SKIP
+    </button>
+
+  </div>
+
+
+  <!-- KEY -->
+  <div class="box" id="keyBox">
+
+    <div class="key-title">
+      🎉 XÁC THỰC THÀNH CÔNG
+    </div>
+
+    <div class="key-area">
+
+      <input
+        class="key-input"
+        id="keyInput"
+        value="KEY_FREE_19_10_1NCB_1_9_1NCB"
+        readonly
+      >
+
+      <button class="copy-btn" onclick="copyKey()">
+        SAO CHÉP
+      </button>
 
     </div>
 
-
-    <!-- KHUNG LOADING -->
-    <div class="box" id="loadingBox">
-
-        <div class="loading-title">
-            ĐANG XÁC THỰC
-        </div>
-
-        <img
-            class="loading-img"
-            src="https://i.ibb.co/PsDW1Zwg/file-00000000a95c81fa850099ef06505f30.png"
-            alt="Loading"
-        >
-
-        <div class="loading-text">
-            Đang xác thực, vui lòng chờ...
-        </div>
-
-        <div class="progress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-
-        <div class="time">
-            Còn <span id="timeLeft">02:00</span>
-        </div>
-
+    <div class="success" id="success">
+      ✓ Đã sao chép KEY
     </div>
 
-
-    <!-- KHUNG KEY -->
-    <div class="box" id="keyBox">
-
-        <div class="key-title">
-            🎉 XÁC THỰC THÀNH CÔNG
-        </div>
-
-        <div class="key-area">
-
-            <input
-                class="key-input"
-                id="keyInput"
-                value="KEY_FREE_19_10_1NCB_1_9_1NCB"
-                readonly
-            >
-
-            <button
-                class="copy-btn"
-                onclick="copyKey()"
-            >
-                SAO CHÉP
-            </button>
-
-        </div>
-
-        <div class="success" id="success">
-            ✓ Đã sao chép KEY
-        </div>
-
-        <div class="note">
-            Nhấn nút SAO CHÉP để sao chép KEY.
-        </div>
-
-    </div>
+  </div>
 
 </div>
 
 
 <script>
 
-let audioContext = null;
-let musicTimer = null;
-let verificationTimer = null;
+/* =========================
+   CÀI LINK CHO NÚT SKIP
+   ========================= */
+
+const skipLinks = [
+  "https://xnhau.cab/video/541242/massage-cho-chi-chu-nha-xinh-dep-mo-lon-bop-vu-cho-c-nung-r-de-c-ra-dit-luon/",
+  "https://xnhau.cab/video/543915/huan-luyen-be-2k8-moi-xuong-bac-ninh-thanh-1-con-di-phan-2/"
+];
+
+
+/* =========================
+   BIẾN
+   ========================= */
 
 const TOTAL_TIME = 120;
+
+let elapsed = 0;
+let timer = null;
+let musicTimer = null;
+let audioContext = null;
 
 
 /* =========================
    NHẠC LOADING
-========================= */
+   ========================= */
 
 function startMusic(){
 
-    try{
+  try{
 
-        audioContext = new (
-            window.AudioContext ||
-            window.webkitAudioContext
-        )();
+    audioContext = new (
+      window.AudioContext ||
+      window.webkitAudioContext
+    )();
 
-        const master =
-            audioContext.createGain();
+    const master =
+      audioContext.createGain();
 
-        master.gain.value = 0.035;
+    master.gain.value = 0.035;
 
-        master.connect(
-            audioContext.destination
-        );
+    master.connect(
+      audioContext.destination
+    );
 
-        /*
-         * Nhạc nền nhẹ được tạo trực tiếp
-         * bằng Web Audio API.
-         */
+    const notes = [
+      261.63,
+      329.63,
+      392.00,
+      329.63,
+      293.66,
+      349.23,
+      440.00,
+      349.23
+    ];
 
-        const notes = [
-            261.63,
-            329.63,
-            392.00,
-            329.63,
-            293.66,
-            349.23,
-            440.00,
-            349.23
-        ];
+    let index = 0;
 
-        let index = 0;
+    function playNote(){
 
-        function playNote(){
+      if(!audioContext) return;
 
-            if(!audioContext)
-                return;
+      const osc =
+        audioContext.createOscillator();
 
-            const osc =
-                audioContext.createOscillator();
+      const gain =
+        audioContext.createGain();
 
-            const gain =
-                audioContext.createGain();
+      osc.type = "sine";
 
-            osc.type = "sine";
+      osc.frequency.value =
+        notes[index % notes.length];
 
-            osc.frequency.value =
-                notes[index % notes.length];
+      gain.gain.setValueAtTime(
+        0,
+        audioContext.currentTime
+      );
 
-            gain.gain.setValueAtTime(
-                0,
-                audioContext.currentTime
-            );
+      gain.gain.linearRampToValueAtTime(
+        0.5,
+        audioContext.currentTime + 0.05
+      );
 
-            gain.gain.linearRampToValueAtTime(
-                0.5,
-                audioContext.currentTime + 0.05
-            );
+      gain.gain.linearRampToValueAtTime(
+        0,
+        audioContext.currentTime + 0.45
+      );
 
-            gain.gain.linearRampToValueAtTime(
-                0,
-                audioContext.currentTime + 0.45
-            );
+      osc.connect(gain);
+      gain.connect(master);
 
-            osc.connect(gain);
-            gain.connect(master);
+      osc.start();
 
-            osc.start();
+      osc.stop(
+        audioContext.currentTime + 0.5
+      );
 
-            osc.stop(
-                audioContext.currentTime + 0.5
-            );
-
-            index++;
-        }
-
-        playNote();
-
-        musicTimer = setInterval(
-            playNote,
-            500
-        );
-
-    }catch(e){
-
-        console.log(
-            "Không thể phát âm thanh:",
-            e
-        );
-
+      index++;
     }
+
+    playNote();
+
+    musicTimer =
+      setInterval(playNote,500);
+
+  }catch(e){
+
+    console.log(e);
+
+  }
 
 }
 
 
 /* =========================
    TẮT NHẠC
-========================= */
+   ========================= */
 
 function stopMusic(){
 
-    if(musicTimer){
+  if(musicTimer){
 
-        clearInterval(
-            musicTimer
-        );
+    clearInterval(musicTimer);
+    musicTimer = null;
 
-        musicTimer = null;
-    }
+  }
 
-    if(audioContext){
+  if(audioContext){
 
-        try{
+    try{
+      audioContext.close();
+    }catch(e){}
 
-            audioContext.close();
+    audioContext = null;
 
-        }catch(e){}
+  }
 
-        audioContext = null;
-    }
+}
+
+
+/* =========================
+   HIỆN KEY
+   ========================= */
+
+function showKey(){
+
+  stopMusic();
+
+  if(timer){
+
+    clearInterval(timer);
+    timer = null;
+
+  }
+
+  document.getElementById(
+    "loadingBox"
+  ).style.display = "none";
+
+  document.getElementById(
+    "keyBox"
+  ).style.display = "block";
 
 }
 
 
 /* =========================
    BẮT ĐẦU XÁC THỰC
-========================= */
+   ========================= */
 
 function startVerify(){
 
-    document.getElementById(
-        "authBox"
-    ).style.display = "none";
+  document.getElementById(
+    "authBox"
+  ).style.display = "none";
+
+  document.getElementById(
+    "loadingBox"
+  ).style.display = "block";
+
+  elapsed = 0;
+
+  document.getElementById(
+    "progressBar"
+  ).style.width = "0%";
+
+  document.getElementById(
+    "timeLeft"
+  ).textContent = "02:00";
+
+  startMusic();
+
+  timer = setInterval(function(){
+
+    elapsed++;
+
+    const percent =
+      (elapsed / TOTAL_TIME) * 100;
 
     document.getElementById(
-        "loadingBox"
-    ).style.display = "block";
+      "progressBar"
+    ).style.width =
+      percent + "%";
 
-    startMusic();
+    const remain =
+      TOTAL_TIME - elapsed;
 
-    let elapsed = 0;
+    const minutes =
+      Math.floor(remain / 60);
 
-    const bar =
-        document.getElementById(
-            "progressBar"
-        );
+    const seconds =
+      remain % 60;
 
-    const time =
-        document.getElementById(
-            "timeLeft"
-        );
-
-    verificationTimer =
-        setInterval(function(){
-
-            elapsed++;
-
-            let percent =
-                (elapsed / TOTAL_TIME) * 100;
-
-            bar.style.width =
-                percent + "%";
-
-            let remain =
-                TOTAL_TIME - elapsed;
-
-            let minutes =
-                Math.floor(remain / 60);
-
-            let seconds =
-                remain % 60;
-
-            time.textContent =
-                String(minutes).padStart(2,"0")
-                + ":" +
-                String(seconds).padStart(2,"0");
+    document.getElementById(
+      "timeLeft"
+    ).textContent =
+      String(minutes).padStart(2,"0")
+      + ":" +
+      String(seconds).padStart(2,"0");
 
 
-            if(elapsed >= TOTAL_TIME){
+    if(elapsed >= TOTAL_TIME){
 
-                clearInterval(
-                    verificationTimer
-                );
+      showKey();
 
-                verificationTimer = null;
+    }
 
-                stopMusic();
+  },1000);
 
-                document.getElementById(
-                    "loadingBox"
-                ).style.display = "none";
+}
 
-                document.getElementById(
-                    "keyBox"
-                ).style.display = "block";
 
-            }
+/* =========================
+   SKIP
+   ========================= */
 
-        },1000);
+function skipToRandomLink(){
+
+  stopMusic();
+
+  if(timer){
+
+    clearInterval(timer);
+    timer = null;
+
+  }
+
+  const randomIndex =
+    Math.floor(
+      Math.random() *
+      skipLinks.length
+    );
+
+  const randomLink =
+    skipLinks[randomIndex];
+
+  window.location.href =
+    randomLink;
 
 }
 
 
 /* =========================
    SAO CHÉP KEY
-========================= */
+   ========================= */
 
 function copyKey(){
 
-    const input =
+  const key =
+    document.getElementById(
+      "keyInput"
+    ).value;
+
+  navigator.clipboard.writeText(key)
+    .then(function(){
+
+      const success =
         document.getElementById(
-            "keyInput"
+          "success"
         );
 
-    navigator.clipboard.writeText(
-        input.value
-    ).then(function(){
+      success.style.display = "block";
 
-        const success =
-            document.getElementById(
-                "success"
-            );
+      setTimeout(function(){
 
-        success.style.display =
-            "block";
+        success.style.display = "none";
 
-        setTimeout(function(){
+      },2000);
 
-            success.style.display =
-                "none";
+    })
+    .catch(function(){
 
-        },2000);
-
-    }).catch(function(){
-
-        input.select();
-        input.setSelectionRange(
-            0,
-            99999
+      const input =
+        document.getElementById(
+          "keyInput"
         );
 
-        document.execCommand(
-            "copy"
-        );
+      input.select();
+
+      document.execCommand("copy");
 
     });
 
